@@ -13,6 +13,7 @@ class LinksController extends Controller
      */
     public function index()
     {
+        $allLinks = Link::all();
         //
     }
 
@@ -24,7 +25,12 @@ class LinksController extends Controller
     public function create()
     {
         $link = new Link();
-        $link->
+        $link->title=$request->input('title');
+        $link->description=$request->input('description');
+        $link->link=$request->input('link');
+        $link->save();
+
+        return redirect('links');
         //
     }
 
@@ -48,6 +54,7 @@ class LinksController extends Controller
      */
     public function show($id)
     {
+        return Link::findOrFail($id);
         //
     }
 
@@ -82,6 +89,7 @@ class LinksController extends Controller
      */
     public function destroy($id)
     {
+        Link::destroy($id);
         //
     }
 }

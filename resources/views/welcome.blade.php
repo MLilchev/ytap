@@ -64,6 +64,46 @@
         </style>
     </head>
     <body>
+    <?php
+        foreach ($links as $link) {
+            echo '
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="title"><a href=/show/'.$link['id'].'>'.$link['title'].'</a></div>
+                    <div class="description">'.$link['description'].'</div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="image">
+                        <img src="https://img.youtube.com/vi/'.(getYoutubeIdFromUrl($link['url'])).'/hqdefault.jpg"/>
+                    </div>
+                </div>
+            </div>
+            ';
+        }
+            ?>
+        <table width="100%" cellspacing="0" cellpadding="5" border="0" class="application">
+            <tr>
+            <th align="left">Title</th>
+            <th align="left">Link</th>
+            <th align="left">Description</th>
+            </tr>  
+        <?php
+        foreach ($links as $link) {
+            echo '
+                <tr>
+                    <td>'.$link['title'].'</td>
+                    <td>'.$link['url'].'</td>
+                    <td>'.$link['description'].'</td>
+                </tr> 
+            ';
+        }
+        ?>
+        </table>
+        <div class="links">
+            @foreach ($links as $link)
+                <a href="{{ $link->url }}">{{ $link->title }}</a>
+            @endforeach
+        </div>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
