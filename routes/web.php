@@ -13,4 +13,17 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome.index');
+
+Route::get('/input', function () {
+    return view('input');
+})->name('input.index');
+
+Route::get('/list', function () {
+    return view('list');
+})->name('list.index');
+
+
+
+Route::get('links/create', 'LinksController@create');
+Route::get('links', 'LinksController@store');
