@@ -3,7 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="{{ asset('js/app.js') }}"></script>
 
+        <script src="{{ asset('js/refreshAt.js') }}"></script>
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -135,5 +137,6 @@
                 </div>
             </div>
         </div>
+        <script>$( document ).ready(function() {refreshAt(17, 18, 0)});</script>
     </body>
 </html>
